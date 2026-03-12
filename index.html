@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Campus Monitoring System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d9c4e 0%, #1e6f35 25%, #52c77f 75%, #2d9c4e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .welcome-container h1 {
+            font-size: 3em;
+            color: #2d9c4e;
+            margin-bottom: 10px;
+        }
+
+        .welcome-container h2 {
+            font-size: 1.8em;
+            color: #1e6f35;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .welcome-container p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1.05em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #2d9c4e 0%, #52c77f 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(45, 156, 78, 0.3);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45, 156, 78, 0.4);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #2d9c4e;
+            border: 2px solid #2d9c4e;
+        }
+
+        .btn-login:hover {
+            background: rgba(45, 156, 78, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .features {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            background: #f1f8e9;
+            border-radius: 8px;
+            border-left: 4px solid #2d9c4e;
+        }
+
+        .features h3 {
+            color: #2d9c4e;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            color: #666;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d9c4e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>🌱</h1>
+        <h2>Green Campus</h2>
+        <p>Sustainable Resource Monitoring System</p>
+
+        <div class="button-group">
+            <a href="register.html" class="btn btn-register">Register</a>
+            <a href="login.html" class="btn btn-login">Login</a>
+        </div>
+
+        <div class="features">
+            <h3>Features:</h3>
+            <ul class="feature-list">
+                <li>Monitor electricity usage and consumption trends</li>
+                <li>Submit and track campus complaints</li>
+                <li>Stay updated with campus events and notices</li>
+                <li>Admin dashboard for resource management</li>
+                <li>Real-time data visualization with charts</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer fade-in">
+            <p>&copy; 2026 Green Campus Initiative. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
