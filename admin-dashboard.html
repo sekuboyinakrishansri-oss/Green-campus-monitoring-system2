@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Campus Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-dashboard-style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">🌱</div>
+                <h1>Green Campus</h1>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="#" class="menu-item active" onclick="switchDashboard('dashboard', event)">
+                            <span class="menu-icon">📊</span>
+                            <span class="menu-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="switchDashboard('electricity', event)">
+                            <span class="menu-icon">⚡</span>
+                            <span class="menu-label">Electricity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="switchDashboard('records', event)">
+                            <span class="menu-icon">📋</span>
+                            <span class="menu-label">Records</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="switchDashboard('complaints', event)">
+                            <span class="menu-icon">📝</span>
+                            <span class="menu-label">Complaints</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-item" onclick="switchDashboard('events', event)">
+                            <span class="menu-icon">🎉</span>
+                            <span class="menu-label">Events</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="handleLogout()">🚪 Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h2 id="sectionTitle">Dashboard</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232d9c4e'/%3E%3Cpath d='M 12 14 C 6 14 2 17 2 21 L 22 21 C 22 17 18 14 12 14 Z' fill='%232d9c4e'/%3E%3C/svg%3E" alt="User">
+                        <span class="username">Admin User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Sections -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="dashboard-section active fade-in">
+                    <div class="section-header">
+                        <h3>System Overview</h3>
+                        <p>Monitor key metrics and system status</p>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stat-card fade-in">
+                            <div class="stat-header">
+                                <h4>Total Complaints</h4>
+                                <span class="stat-icon">📋</span>
+                            </div>
+                            <div class="stat-value" id="totalComplaints">0</div>
+                            <div class="stat-footer">
+                                <span class="trend up">▲ View all</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card fade-in">
+                            <div class="stat-header">
+                                <h4>Departments Tracked</h4>
+                                <span class="stat-icon">⚡</span>
+                            </div>
+                            <div class="stat-value" id="totalDepartments">0</div>
+                            <div class="stat-footer">
+                                <span class="trend up">▲ Active monitoring</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card fade-in">
+                            <div class="stat-header">
+                                <h4>Total Events</h4>
+                                <span class="stat-icon">🎉</span>
+                            </div>
+                            <div class="stat-value" id="totalEvents">0</div>
+                            <div class="stat-footer">
+                                <span class="trend up">▲ Upcoming</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card fade-in">
+                            <div class="stat-header">
+                                <h4>System Status</h4>
+                                <span class="stat-icon">✅</span>
+                            </div>
+                            <div class="stat-value status-active">Active</div>
+                            <div class="stat-footer">
+                                <span class="trend up">✓ All systems operational</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts and Activity -->
+                    <div class="dashboard-row">
+                        <div class="chart-card slide-in">
+                            <h4>Recent Activity</h4>
+                            <div class="activity-list" id="activityList">
+                                <p style="text-align: center; color: #999; padding: 30px;">No recent activity</p>
+                            </div>
+                        </div>
+
+                        <div class="chart-card slide-in">
+                            <h4>Quick Actions</h4>
+                            <div class="quick-actions">
+                                <button class="action-btn" onclick="switchDashboard('electricity', event)">
+                                    <span class="action-icon">⚡</span>
+                                    <span>Add Electricity Reading</span>
+                                </button>
+                                <button class="action-btn" onclick="switchDashboard('complaints', event)">
+                                    <span class="action-icon">📝</span>
+                                    <span>View Complaints</span>
+                                </button>
+                                <button class="action-btn" onclick="switchDashboard('events', event)">
+                                    <span class="action-icon">🎉</span>
+                                    <span>Create Event</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Electricity Section -->
+                <section id="electricity" class="dashboard-section fade-in">
+                    <div class="section-header">
+                        <h3>Electricity Monitoring</h3>
+                        <p>Track and record electricity consumption</p>
+                    </div>
+
+                    <div class="form-card slide-in">
+                        <h4>Add Electricity Reading</h4>
+                        <form id="electricityForm">
+                            <div class="form-group">
+                                <label for="deptName">Department Name <span class="required">*</span></label>
+                                <input type="text" id="deptName" placeholder="Enter department name" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prevReading">Previous Reading (Units) <span class="required">*</span></label>
+                                    <input type="number" id="prevReading" placeholder="e.g., 5000" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="currReading">Current Reading (Units) <span class="required">*</span></label>
+                                    <input type="number" id="currReading" placeholder="e.g., 5500" min="0" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="readingDate">Reading Date <span class="required">*</span></label>
+                                <input type="date" id="readingDate" required>
+                            </div>
+
+                            <div class="calculated-box">
+                                <span>Units Consumed:</span>
+                                <span id="unitsConsumed" class="calculated-value">0</span>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Submit Reading</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Records Section -->
+                <section id="records" class="dashboard-section fade-in">
+                    <div class="section-header">
+                        <h3>Electricity Records</h3>
+                        <p>View all recorded electricity readings</p>
+                    </div>
+
+                    <div class="records-card slide-in">
+                        <div class="records-list" id="recordsList">
+                            <p style="text-align: center; color: #999; padding: 40px;">No records yet</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Complaints Section -->
+                <section id="complaints" class="dashboard-section fade-in">
+                    <div class="section-header">
+                        <h3>Complaint Management</h3>
+                        <p>Manage student and staff complaints</p>
+                    </div>
+
+                    <div class="form-card slide-in">
+                        <h4>Submit Complaint</h4>
+                        <form id="complaintForm">
+                            <div class="form-group">
+                                <label for="complaintTitle">Complaint Title <span class="required">*</span></label>
+                                <input type="text" id="complaintTitle" placeholder="Enter complaint title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="complaintDesc">Description <span class="required">*</span></label>
+                                <textarea id="complaintDesc" placeholder="Describe the complaint in detail" rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="complaintCategory">Category <span class="required">*</span></label>
+                                <select id="complaintCategory" required>
+                                    <option value="">Select a category</option>
+                                    <option value="electricity">Electricity Issues</option>
+                                    <option value="water">Water Issues</option>
+                                    <option value="waste">Waste Management</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Submit Complaint</button>
+                        </form>
+                    </div>
+
+                    <div class="complaints-card slide-in">
+                        <h4>Recent Complaints</h4>
+                        <div class="complaints-list" id="complaintsList">
+                            <p style="text-align: center; color: #999; padding: 30px;">No complaints yet</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Events Section -->
+                <section id="events" class="dashboard-section fade-in">
+                    <div class="section-header">
+                        <h3>Campus Events</h3>
+                        <p>Create and manage sustainability events</p>
+                    </div>
+
+                    <div class="form-card slide-in">
+                        <h4>Create New Event</h4>
+                        <form id="eventForm">
+                            <div class="form-group">
+                                <label for="eventTitle">Event Title <span class="required">*</span></label>
+                                <input type="text" id="eventTitle" placeholder="Enter event title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventDesc">Description <span class="required">*</span></label>
+                                <textarea id="eventDesc" placeholder="Describe your event" rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="eventDate">Event Date <span class="required">*</span></label>
+                                    <input type="date" id="eventDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="eventTime">Event Time <span class="required">*</span></label>
+                                    <input type="time" id="eventTime" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eventLocation">Location <span class="required">*</span></label>
+                                <input type="text" id="eventLocation" placeholder="Enter event location" required>
+                            </div>
+
+                            <button type="submit" class="btn-submit">Create Event</button>
+                        </form>
+                    </div>
+
+                    <div class="events-card slide-in">
+                        <h4>Upcoming Events</h4>
+                        <div class="events-list" id="eventsList">
+                            <p style="text-align: center; color: #999; padding: 30px;">No events created yet</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
